@@ -12,9 +12,21 @@ provider:
   deploymentMethod: direct
 
 functions:
-  hello:
-    handler: handler.hello
+  GetInsults:
+    handler: functions/GetInsults/index.handler
     events:
       - httpApi:
-          path: /
+          path: /insults
+          method: get
+  PostInsults:
+    handler: functions/PostInsults/index.handler
+    events:
+      - httpApi:
+          path: /insults
+          method: post
+  GetInsult:
+    handler: functions/GetInsult/index.handler
+    events:
+      - httpApi:
+          path: /insults/{id}
           method: get
